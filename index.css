@@ -1,0 +1,35 @@
+.code-edit-space,
+.code-display-space,
+.fiddle-execute-btn {
+    float: left;
+    margin-right: 50px;
+}
+
+.code-edit-space,
+.code-display-space {
+    margin-bottom: 30px;
+}
+
+.code-text {
+    height: 300px;
+    width: 500px;
+}
+
+.code-output-display {
+    border-style: solid;
+    height: 300px;
+    width: 500px;
+}
+
+.fiddle-execute-btn {
+    clear: both;
+    height: 30px;
+    width: 150px;
+    margin: 0 50px 50px;
+}
+
+footer {
+    display: inline-block;
+    bottom: 10px;
+    width: 100%;
+}
