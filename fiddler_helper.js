@@ -40,7 +40,11 @@ var sampleText = [  "Remember, the variables are Integers.",
                     "Remember, a for loop...loops.",
                     "OK, so I ran out of hints.",
                     "Wright code and serve your robot overlords.",
-                    "Something this way comes."];
+                    "Something this way comes.",
+                    "I am here to help.",
+                    "Honestly I am here to help!",
+                    "Write your code better, I am watching!",
+                    "Statement: 'Your programming is inferior'."];
 
 var fiddlerHelperMain = function() {
     window.onresize();
@@ -121,6 +125,29 @@ function animateSpeechBubble( _time )
                   .call( randAction );
 }
 
+function animateFiddlerBounce( _time )
+{
+    createjs.Tween.get( fiddlerHelper, { override:true } )
+                  .to(  { scaleX: 2, scaleY: 2 },
+                        _time,
+                        createjs.Ease.none )
+                  .to(  { scaleX: 1, scaleY: 1 },
+                        _time*3,
+                        createjs.Ease.bounceOut );
+                  // .call( animateFiddlerRock );
+}
+
+function animateFiddlerRock()
+{
+    createjs.Tween.get( fiddlerImg, { loop:true, override: true } )
+                  .to(  { rotation: 10 },
+                        1000,
+                        createjs.Ease.bounceOut )
+                  .to(  { rotation:-10 },
+                        1000,
+                        createjs.Ease.bounceOut );
+}
+
 function createHelper()
 {
     fiddlerHelper = container.addChild( new createjs.Container() );
@@ -132,13 +159,7 @@ function createHelper()
     cubeImg.y = -bounds.height/2;
     fiddlerImg.scaleX = fiddlerImg.scaleY = 0.2;
     fiddlerImg.rotation = -10;
-    createjs.Tween.get( fiddlerImg, { loop:true } )
-                  .to(  { rotation: 10 },
-                        1000,
-                        createjs.Ease.bounceOut )
-                  .to(  { rotation:-10 },
-                        1000,
-                        createjs.Ease.bounceOut );
+    animateFiddlerRock();
     fiddlerSpeech = fiddlerHelper.addChild( new createjs.Container() );
     fiddlerSpeech.x = 10;
     fiddlerSpeech.y = -20;
@@ -152,9 +173,10 @@ function randAction()
     var action = function() {
         setText( sampleText[ Math.floor( jhMath_randRange( 0, sampleText.length-1 ) ) ] );
         animateSpeechBubble( 500 );
+        animateFiddlerBounce( 300 );
         var offset = elementOffset( codeText_elm );
-        helperTarget.x = offset.left+offset.width+jhMath_randRange( -100, 100 );
-        helperTarget.y = offset.top+jhMath_randRange( -10, 100 );
+        helperTarget.x = offset.left+offset.width+jhMath_randRange( -200, 100 );
+        helperTarget.y = offset.top+jhMath_randRange( -50, 100 );
     };
     setTimeout( action, jhMath_randRange( helperMoveTime-helperMoveTimeOffset, helperMoveTime+helperMoveTimeOffset ) );
 }
