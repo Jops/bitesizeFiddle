@@ -6,25 +6,25 @@ body {
 }
 
 .content {
-    width: 1000px;
     margin: 0 auto;
+    max-width: 1000px;
 }
 
 .demo {
-    margin: 10px;
-    width: 90%;
-    padding: 20px;
     background-color: #ECECEC;
     border-radius: 15px;
     display: inline-block;
+    margin: 10px;
+    padding: 20px;
     text-align: left;
+    width: 90%;
 }
 
 canvas {
-    position: absolute;
-    top: 0;
     left: 0;
     pointer-events: none;
+    position: absolute;
+    top: 0;
 }
 
 /*.text-areas {
@@ -42,8 +42,8 @@ header,
 }
 
 .description {
-    border-radius: 15px;
     background-color: #FF8C00;
+    border-radius: 15px;
     color: #333333;
     padding: 5px 20px;
 }
@@ -64,8 +64,8 @@ header,
 }
 
 .code-text {
-    box-sizing: border-box;
     /*border-style: solid;*/
+    box-sizing: border-box;
     color: grey;
     height: 300px;
     padding: 10px;
@@ -82,8 +82,8 @@ header,
 .fiddle-btn {
     clear: right;
     height: 30px;
-    width: 150px;
     margin: 0 50px 20px;
+    width: 150px;
 }
 
 .fiddle-execute-btn {
@@ -92,17 +92,17 @@ header,
 }
 
 footer span {
-    display: inline-block;
     bottom: 10px;
-    width: 500px;
+    display: inline-block;
     margin: 0 auto;
+    width: 500px;
 }
 
 .source-code {
-    overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    word-wrap: normal;
-    tab-size: 4;
+    overflow-x: auto;
     -moz-tab-size: 4;
     -o-tab-size:  4;
+    tab-size: 4;
+    word-wrap: normal;
 }
