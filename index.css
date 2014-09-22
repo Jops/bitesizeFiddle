@@ -64,8 +64,9 @@ header,
 }
 
 .code-text {
-    /*border-style: solid;*/
+    border-style: dotted;
     box-sizing: border-box;
+    background-color: whitesmoke;
     color: grey;
     height: 300px;
     padding: 10px;
