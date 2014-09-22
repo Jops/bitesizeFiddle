@@ -14,6 +14,8 @@ var helperTarget = { x: 500, y: -100 },
     helperIntervalTime = 32;
     helperMoveTime = 3000;
     helperMoveTimeOffset = 1000;
+    helperJitterTime = 500;
+    helperJitterTimeOffset = 100;
 
 var speech_container = null,
     bubble = null,
@@ -44,7 +46,8 @@ var sampleText = [  "Remember, the variables are Integers.",
                     "I am here to help.",
                     "Honestly I am here to help!",
                     "Write your code better, I am watching!",
-                    "Statement: 'Your programming is inferior'."];
+                    "Statement: 'Your programming is inferior'.",
+                    "Cake or death? ...cake or death?"];
 
 var fiddlerHelperMain = function() {
     window.onresize();
@@ -69,6 +72,7 @@ var fiddlerHelperMain = function() {
     codeText_elm = document.getElementById( "code-block" );
 
     randAction();
+    JitterAction();
 };
 
 window.onresize = function( e ) {
@@ -175,10 +179,20 @@ function randAction()
         animateSpeechBubble( 500 );
         animateFiddlerBounce( 300 );
         var offset = elementOffset( codeText_elm );
-        helperTarget.x = offset.left+offset.width+jhMath_randRange( -200, 100 );
-        helperTarget.y = offset.top+jhMath_randRange( -50, 100 );
+        helperTarget.x = offset.left + offset.width + jhMath_randRange( -200, 100 );
+        helperTarget.y = offset.top + jhMath_randRange( -50, 100 );
     };
     setTimeout( action, jhMath_randRange( helperMoveTime-helperMoveTimeOffset, helperMoveTime+helperMoveTimeOffset ) );
+}
+
+function JitterAction()
+{
+    var action = function() {
+        helperTarget.x = helperTarget.x + jhMath_randRange( -50, 50 );
+        helperTarget.y = helperTarget.y + jhMath_randRange( -50, 50 );
+        JitterAction();
+    };
+    setTimeout( action, jhMath_randRange( helperJitterTime-helperJitterTimeOffset, helperJitterTime+helperJitterTimeOffset ) );
 }
 
 /**
