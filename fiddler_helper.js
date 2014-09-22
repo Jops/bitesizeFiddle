@@ -14,8 +14,8 @@ var helperTarget = { x: 500, y: -100 },
     helperIntervalTime = 32;
     helperMoveTime = 3000;
     helperMoveTimeOffset = 1000;
-    helperJitterTime = 500;
-    helperJitterTimeOffset = 100;
+    helperJitterTime = 2000;
+    helperJitterTimeOffset = 500;
 
 var speech_container = null,
     bubble = null,
@@ -47,7 +47,8 @@ var sampleText = [  "Remember, the variables are Integers.",
                     "Honestly I am here to help!",
                     "Write your code better, I am watching!",
                     "Statement: 'Your programming is inferior'.",
-                    "Cake or death? ...cake or death?"];
+                    "Cake or death? ...cake or death?",
+                    "Note to self: Am I a Piranha?"];
 
 var fiddlerHelperMain = function() {
     window.onresize();
@@ -132,13 +133,13 @@ function animateSpeechBubble( _time )
 function animateFiddlerBounce( _time )
 {
     createjs.Tween.get( fiddlerHelper, { override:true } )
-                  .to(  { scaleX: 2, scaleY: 2 },
+                  .to(  { scaleX: 2, scaleY: 2, alpha: 1 },
                         _time,
                         createjs.Ease.none )
                   .to(  { scaleX: 1, scaleY: 1 },
                         _time*3,
-                        createjs.Ease.bounceOut );
-                  // .call( animateFiddlerRock );
+                        createjs.Ease.bounceOut )
+                  .call( animateFiddlerFade );
 }
 
 function animateFiddlerRock()
@@ -150,6 +151,15 @@ function animateFiddlerRock()
                   .to(  { rotation:-10 },
                         1000,
                         createjs.Ease.bounceOut );
+}
+
+function animateFiddlerFade()
+{
+    createjs.Tween.get( fiddlerHelper, { override:true } )
+                  .wait( 2000 )
+                  .to(  { alpha: 0 },
+                        2000,
+                        createjs.Ease.none );
 }
 
 function createHelper()
