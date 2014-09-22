@@ -6,28 +6,55 @@
     </head>
     <body>
 
-        <h1>Bitesize Javascript Fiddle</h1>
-        <h2>Allow Bitesize users studying computing to execute Javascript snippets as part of their learning in chapter.</h2>
+        <div class="content">
 
-        <p>The for loop is a ...explanation.</p>
+            <header>
+                <h1>Bitesize Javascript Fiddle</h1>
+            </header>
 
-        <section class="clearfix">
-            <p>Javascript fiddle:</p>
-            <div id="code-section" class="code-section code-edit-space">
-                <p>Edit the code here.</p>
-                <textarea class="code-text"></textarea>
+            <div class="description">
+                <h2>Allow Bitesize users studying computing to execute Javascript snippets as part of their learning in chapter.</h2>
+                <p>The for statement creates a loop that consists of three optional expressions, enclosed in parentheses and separated by semicolons, followed by a statement executed in the loop.</p>
             </div>
-            <div id="code-output" class="code-output code-display-space">
-                <p>See the code work here.</p>
-                <div id="code-output-display" class="code-output-display"></div>
-            </div>
-            <button id="fiddle-execute-btn" class="fiddle-execute-btn">EXECUTE CODE</button>
-        </section>
 
-        <footer>Hack Day - Code Fun! - JavascriptFiddler</footer>
+
+            <section class="demo">
+                <div class="text-areas">
+                    <div id="code-section" class="code-section code-edit-space">
+                        <p>Edit the code here.</p>
+                        <div id="code-block" class="source-code code-text"></div>
+                    </div>
+                    <div id="code-output" class="code-output code-display-space">
+                        <p>See the code work here.</p>
+                        <textarea id="code-output-display" class="code-output-display"></textarea>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button id="fiddle-execute-btn" class="fiddle-btn fiddle-execute-btn">EXECUTE CODE</button>
+                    <button id="fiddle-reset-btn" class="fiddle-btn fiddle-reset-btn">RESET CODE 1</button>
+                    <button id="fiddle-reset2-btn" class="fiddle-btn fiddle-reset-btn">RESET CODE 2</button>
+                </div>
+            </section>
+
+            <section id="canvases" class="canvasContainer">
+                <canvas id="_canvas"></canvas>
+            </section>
+
+            <footer>
+                <span>Hack Day - Code Fun! - JavascriptFiddler</span>
+            </footer>
+
+        </div>
+
+        <script src="http://code.createjs.com/createjs-2013.09.25.min.js"></script>
+        <script src="fiddler.js"></script>
+        <script src="fiddler_helper.js"></script>
 
         <script>
-
+            window.onload = function() {
+                fiddlerMain();
+                fiddlerHelperMain();
+            };
         </script>
 
     </body>

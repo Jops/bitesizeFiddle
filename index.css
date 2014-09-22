@@ -1,6 +1,59 @@
+
+body {
+    margin: 50px 0;
+    padding: 0;
+    text-align: center;
+}
+
+.content {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.demo {
+    margin: 10px;
+    width: 90%;
+    padding: 20px;
+    background-color: #ECECEC;
+    border-radius: 15px;
+    display: inline-block;
+    text-align: left;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+/*.text-areas {
+    max-width: 100%;
+}*/
+
+header {
+    font-family: "Helvetica";
+    font-size: 32px;
+}
+
+header,
+.description {
+    max-width: 100%;
+}
+
+.description {
+    border-radius: 15px;
+    background-color: #FF8C00;
+    color: #333333;
+    padding: 5px 20px;
+}
+
+.buttons {
+    /*max-width: 65%;*/
+}
+
 .code-edit-space,
-.code-display-space,
-.fiddle-execute-btn {
+.code-display-space {
     float: left;
     margin-right: 50px;
 }
@@ -11,25 +64,45 @@
 }
 
 .code-text {
+    box-sizing: border-box;
+    /*border-style: solid;*/
+    color: grey;
     height: 300px;
-    width: 500px;
+    padding: 10px;
 }
 
 .code-output-display {
-    border-style: solid;
+    background-color: whitesmoke;
+    box-sizing: border-box;
     height: 300px;
-    width: 500px;
+    padding: 10px;
+    width: 350px;
+}
+
+.fiddle-btn {
+    clear: right;
+    height: 30px;
+    width: 150px;
+    margin: 0 50px 20px;
 }
 
 .fiddle-execute-btn {
-    clear: both;
-    height: 30px;
-    width: 150px;
-    margin: 0 50px 50px;
+    background-color: red;
+    color: white;
 }
 
-footer {
+footer span {
     display: inline-block;
     bottom: 10px;
-    width: 100%;
+    width: 500px;
+    margin: 0 auto;
+}
+
+.source-code {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    word-wrap: normal;
+    tab-size: 4;
+    -moz-tab-size: 4;
+    -o-tab-size:  4;
 }
